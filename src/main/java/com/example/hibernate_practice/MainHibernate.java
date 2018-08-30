@@ -56,7 +56,7 @@ public class MainHibernate {
                     for (Student student1 : students1) {
                         if (student1.getLastName().toLowerCase().equals(tmp.toLowerCase())) {
                             session.delete(student1);
-                            //session.flush();
+                            session.flush();
                             System.out.printf(ANSI_RED+"User with lastname %s was successfully deleted from DATABASE\n"+ANSI_RESET,tmp);
                         }
                     }
@@ -71,7 +71,7 @@ public class MainHibernate {
             }
 
         }
-        //transaction.commit();
+        transaction.commit();
         session.close();
         scanner.close();
         HibernateUtility.closeSessionFactory();
