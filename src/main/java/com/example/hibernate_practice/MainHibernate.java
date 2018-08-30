@@ -43,7 +43,6 @@ public class MainHibernate {
                     Query query = session.createQuery("from Student");
                     List<Student> students = query.getResultList();
                     for (Student student : students) {
-                        session = null;
                         student = setStudentExams(session, student.getId(), scanner);
                         session.save(student);
                         System.out.println(ANSI_CYAN + student.getExams() + ANSI_RESET);
@@ -57,7 +56,7 @@ public class MainHibernate {
                     for (Student student1 : students1) {
                         if (student1.getLastName().toLowerCase().equals(tmp.toLowerCase())) {
                             session.delete(student1);
-                            session.flush();
+                            //session.flush();
                             System.out.printf(ANSI_RED+"User with lastname %s was successfully deleted from DATABASE\n"+ANSI_RESET,tmp);
                         }
                     }
@@ -72,7 +71,7 @@ public class MainHibernate {
             }
 
         }
-        transaction.commit();
+        //transaction.commit();
         session.close();
         scanner.close();
         HibernateUtility.closeSessionFactory();
