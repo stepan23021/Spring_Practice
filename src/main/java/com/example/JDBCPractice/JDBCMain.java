@@ -91,10 +91,15 @@ public class JDBCMain {
                             break;
                     }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     System.out.println("asdasdadada");
 ||||||| merged common ancestors
 =======
                     System.out.println("Commit on branch");
+>>>>>>> TestBranch
+||||||| merged common ancestors
+                    System.out.println("Commit on branch");
+=======
 >>>>>>> TestBranch
                     statement.close();
                     connection.close();
