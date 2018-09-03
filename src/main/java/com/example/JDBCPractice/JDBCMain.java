@@ -90,7 +90,6 @@ public class JDBCMain {
                             checker = true;
                             break;
                     }
-                    System.out.println("Just useless change to test branches");
                     statement.close();
                     connection.close();
 
