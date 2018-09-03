@@ -1,10 +1,14 @@
 package com.example.dmitrii.spring_practice.rockets;
 
 import com.example.dmitrii.spring_practice.rocket_interfaces.*;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+import javax.annotation.PostConstruct;
 
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_CYAN;
 
-public class Apollo implements Rocket {
+public class Apollo implements Rocket, InitializingBean, DisposableBean  {
 
     private FuelType fuelType;
     private FirstStage firstStage;
@@ -142,4 +146,12 @@ public class Apollo implements Rocket {
         this.camouflage = camouflage;
     }
 
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(this + " - method destroy()");
+    }
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " - method init()");
+    }
 }
