@@ -21,20 +21,20 @@ public class JDBCMain {
         execSQL();
     }
 
-    private static void insertSQL(String firstname, String lastname, int age) throws SQLException {
+    private static void insertSQL(String firstname, String last_name, int age) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO students(firstname,lastname,age) values (?,?,?)");
         preparedStatement.setString(1, firstname);
-        preparedStatement.setString(2, lastname);
+        preparedStatement.setString(2, last_name);
         preparedStatement.setInt(3, age);
         preparedStatement.execute();
         execSQL();
     }
 
-    private static void deleteSQL(String lastname) throws SQLException {
+    private static void deleteSQL(String last_name) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM students WHERE lastname=?");
-        preparedStatement.setString(1, lastname);
+        preparedStatement.setString(1, last_name);
         preparedStatement.execute();
-        System.out.println(ANSI_RED + "Successfully deleted user with lastname " + "\"" + lastname + "\"" + ANSI_RESET);
+        System.out.println(ANSI_RED + "Successfully deleted user with last_name " + "\"" + last_name + "\"" + ANSI_RESET);
         execSQL();
     }
 
