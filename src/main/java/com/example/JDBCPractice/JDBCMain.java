@@ -90,7 +90,12 @@ public class JDBCMain {
                             checker = true;
                             break;
                     }
+<<<<<<< HEAD
                     System.out.println("asdasdadada");
+||||||| merged common ancestors
+=======
+                    System.out.println("Commit on branch");
+>>>>>>> TestBranch
                     statement.close();
                     connection.close();
 
