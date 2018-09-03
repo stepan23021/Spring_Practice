@@ -90,7 +90,6 @@ public class JDBCMain {
                             checker = true;
                             break;
                     }
-                    System.out.println("dasd");
                     statement.close();
                     connection.close();
 
