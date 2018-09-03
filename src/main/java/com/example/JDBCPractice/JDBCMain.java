@@ -90,6 +90,7 @@ public class JDBCMain {
                             checker = true;
                             break;
                     }
+                    System.out.println("asdasdadada");
                     statement.close();
                     connection.close();
 
