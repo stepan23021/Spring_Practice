@@ -90,7 +90,6 @@ public class JDBCMain {
                             checker = true;
                             break;
                     }
-                    System.out.println("Commit on branch");
                     statement.close();
                     connection.close();
 
