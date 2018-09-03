@@ -21,7 +21,6 @@ public class Launch {
                 apollo.launch();
                 if (launch.equals("apollo"))
                     apollo.moonLanding();
-                //NEW VERY USELESS COMMENT
             }
         }
         Object bean = context.getBean("hibernateBean");

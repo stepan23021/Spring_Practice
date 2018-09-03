@@ -7,8 +7,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
-
+       http://www.springframework.org/schema/context/spring-context.xsd"
+default-lazy-init="true">
     <!--APOLLO bean definitions here -->
     <bean id="apollo" class="com.example.dmitrii.spring_practice.rockets.Apollo"
           p:fuelType-ref="saturnFuelType"
@@ -51,9 +51,9 @@
     <bean id="geminiThirdStage" class="com.example.dmitrii.spring_practice.gemini.GeminiThirdStage"/>
     <bean id="geminiFuelType" class="com.example.dmitrii.spring_practice.gemini.GeminiFuelType"/>
 
-    <bean class="com.example.dmitrii.spring_practice.MyBeanPostProcessor"/>
-
     <context:component-scan base-package="com.example.hibernate_practice"/>
+
+    <bean class="com.example.dmitrii.spring_practice.MyBeanPostProcessor"/>
 
 
 </beans>
