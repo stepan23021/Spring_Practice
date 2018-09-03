@@ -3,6 +3,7 @@ package com.example.hibernate_practice;
 import com.example.hibernate_practice.entity.Exam;
 import com.example.hibernate_practice.entity.Student;
 import com.example.hibernate_practice.entity.StudentAddress;
+import com.example.hibernate_practice.entity.Subject;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -21,6 +22,7 @@ public class MainHibernate {
     public MainHibernate() {
 
     }
+
     public void main() {
         Scanner scanner = new Scanner(System.in);
         //BUILDING SESSIONFACTORY AND OPENING NEW SESSION
@@ -29,7 +31,7 @@ public class MainHibernate {
 
         boolean checker = true;
         while (checker) {
-            System.out.println(ANSI_RESET+ANSI_GREEN+"Select what you want to do with DATABASE\n" +
+            System.out.println(ANSI_RESET + ANSI_GREEN + "Select what you want to do with DATABASE\n" +
                     "1.Insert\n" +
                     "2.Update grades\n" +
                     "3.Delete\n" +
@@ -57,12 +59,12 @@ public class MainHibernate {
                         if (student1.getLastName().toLowerCase().equals(tmp.toLowerCase())) {
                             session.delete(student1);
                             session.flush();
-                            System.out.printf(ANSI_RED+"User with lastname %s was successfully deleted from DATABASE\n"+ANSI_RESET,tmp);
+                            System.out.printf(ANSI_RED + "User with lastname %s was successfully deleted from DATABASE\n" + ANSI_RESET, tmp);
                         }
                     }
                     break;
                 case 4:
-                    System.out.println("Ok...\nTerminating..."+ANSI_RESET);
+                    System.out.println("Ok...\nTerminating..." + ANSI_RESET);
                     checker = false;
                     break;
                 default:
@@ -95,7 +97,7 @@ public class MainHibernate {
                 scan.next();
             }
             age = scan.nextInt();
-        }while (age<1 || age>150);
+        } while (age < 1 || age > 150);
         student.setAge(age);
 
         StudentAddress studentAddress = new StudentAddress();
