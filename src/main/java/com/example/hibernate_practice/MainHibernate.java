@@ -3,13 +3,12 @@ package com.example.hibernate_practice;
 import com.example.hibernate_practice.entity.Exam;
 import com.example.hibernate_practice.entity.Student;
 import com.example.hibernate_practice.entity.StudentAddress;
-import com.example.hibernate_practice.entity.Subject;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -42,7 +41,7 @@ public class MainHibernate {
                     session.save(addStudentInfo(scanner));
                     break;
                 case 2:
-                    Query query = session.createQuery("from Student");
+                    TypedQuery<Student> query = session.createQuery("from Student", Student.class);
                     List<Student> students = query.getResultList();
                     for (Student student : students) {
                         student = setStudentExams(session, student.getId(), scanner);
@@ -53,7 +52,7 @@ public class MainHibernate {
                 case 3:
                     System.out.println("Enter last_name of user you want to delete");
                     String tmp = scanner.next();
-                    Query query1 = session.createQuery("FROM Student");
+                    TypedQuery<Student> query1 = session.createQuery("FROM Student", Student.class);
                     List<Student> students1 = query1.getResultList();
                     for (Student student1 : students1) {
                         if (student1.getLastName().toLowerCase().equals(tmp.toLowerCase())) {
