@@ -14,16 +14,16 @@ public class Launch {
         SpringApplication.run(Launch.class, args);
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         String launches[] = {"apollo", "gemini"};
-//        for (String launch : launches) {
-//            Object obj = context.getBean(launch);
-//            if (obj instanceof Apollo) {
-//                Apollo apollo = (Apollo) obj;
-//                apollo.launch();
-//                if (launch.equals("apollo"))
-//                    apollo.moonLanding();
-//                //NEW VERY USELESS COMMENT
-//            }
-//        }
+        for (String launch : launches) {
+            Object obj = context.getBean(launch);
+            if (obj instanceof Apollo) {
+                Apollo apollo = (Apollo) obj;
+                apollo.launch();
+                if (launch.equals("apollo"))
+                    apollo.moonLanding();
+                //NEW VERY USELESS COMMENT
+            }
+        }
         Object bean = context.getBean("hibernateBean");
         if (bean instanceof MainHibernate) {
             MainHibernate hibernate = (MainHibernate) bean;
