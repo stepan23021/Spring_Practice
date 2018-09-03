@@ -13,17 +13,17 @@ public class JDBCMain {
     private static Connection connection = null;
     private static Statement statement = null;
 
-    private static void updateSQL(int id, String lastname) throws SQLException {
+    private static void updateSQL(int id, String last_name) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE students SET lastname=? where id = ?");
         preparedStatement.setInt(2, id);
-        preparedStatement.setString(1, lastname);
+        preparedStatement.setString(1, last_name);
         preparedStatement.executeUpdate();
         execSQL();
     }
 
-    private static void insertSQL(String firstname, String last_name, int age) throws SQLException {
+    private static void insertSQL(String first_name, String last_name, int age) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO students(firstname,lastname,age) values (?,?,?)");
-        preparedStatement.setString(1, firstname);
+        preparedStatement.setString(1, first_name);
         preparedStatement.setString(2, last_name);
         preparedStatement.setInt(3, age);
         preparedStatement.execute();
