@@ -11,13 +11,13 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println(bean + "Before initialization");
+        System.out.println(bean + " --postProcessBeforeInitialization()");
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println(bean + "Post Processing");
+//        System.out.println(bean + "postProcessAfterInitialization()");
         return bean;
     }
 }

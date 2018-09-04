@@ -15,10 +15,24 @@ default-lazy-init="true">
           p:firstStage-ref="saturnFirstStage"
           p:secondStage-ref="saturnSecondStageStage"
           p:thirdStage-ref="saturnThirdStage"
-          c:serialNumber="175168413"
-          c:hustonWeHaveAProblem="false"
-          c:camouflage="Black|White"
-    />
+            depends-on="colors">
+
+        <constructor-arg value="175168413"/>
+        <constructor-arg value="false"/>
+        <constructor-arg value="Black|White"/>
+
+    </bean>
+    <!--<bean id="apolloEmpty" class="com.example.dmitrii.spring_practice.rockets.Apollo"-->
+          <!--c:fuelType-ref="saturnFuelType"-->
+          <!--c:firstStage-ref="saturnFirstStage"-->
+          <!--c:secondStage-ref="saturnSecondStageStage"-->
+          <!--c:thirdStage-ref="saturnThirdStage"/>-->
+          <!--&lt;!&ndash;c:serialNumber="175168413"&ndash;&gt;-->
+          <!--&lt;!&ndash;c:hustonWeHaveAProblem="false"&ndash;&gt;-->
+          <!--&lt;!&ndash;c:camouflage="Black|White"&ndash;&gt;-->
+    <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+
 
     <bean id="saturnFirstStage" class="com.example.dmitrii.spring_practice.saturn.SaturnFirstStage"/>
     <bean id="saturnSecondStageStage" class="com.example.dmitrii.spring_practice.saturn.SaturnSecondStage"/>
@@ -54,6 +68,7 @@ default-lazy-init="true">
     <context:component-scan base-package="com.example.hibernate_practice"/>
 
     <bean class="com.example.dmitrii.spring_practice.MyBeanPostProcessor"/>
+    <bean id="colors" class="com.example.dmitrii.spring_practice.ansi_colors.Colors"/>
 
 
 </beans>
