@@ -26,12 +26,8 @@ public class Launch implements Serializable {
 //                FileOutputStream fileOutputStream = new FileOutputStream("/home/dmitriistepcenco/Desktop/temp.out");
 //                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 //                Apollo apollo1 = new Apollo();
-////                apollo1.setCamouflage("BLACK");
-////                apollo1.setFirstStage(new GeminiFirstStage());
-////                apollo1.setFuelType(new GeminiFuelType());
+//                apollo1.setCamouflage("BLACK");
 //                apollo1.setHustonWeHaveAProblem(false);
-////                apollo1.setSecondStage(new SaturnSecondStage());
-////                apollo1.setThirdStage(new GeminiThirdStage());
 //                objectOutputStream.writeObject(apollo1);
 //                objectOutputStream.flush();
 //                objectOutputStream.close();
