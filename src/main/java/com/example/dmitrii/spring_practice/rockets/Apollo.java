@@ -6,9 +6,11 @@ import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
 
+import java.io.Serializable;
+
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_CYAN;
 
-public class Apollo implements Rocket, InitializingBean, DisposableBean  {
+public class Apollo implements Rocket, InitializingBean, DisposableBean, Serializable {
 
     private FuelType fuelType;
     private FirstStage firstStage;
