@@ -4,11 +4,11 @@ import com.example.dmitrii.spring_practice.rocket_interfaces.*;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-import javax.annotation.PostConstruct;
-
 import java.io.Serializable;
 
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_CYAN;
+import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_GREEN;
+import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_RESET;
 
 public class Apollo extends BaseRocket implements InitializingBean, DisposableBean, Serializable {
 
@@ -71,6 +71,10 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
         thirdStage.thirdStageShutdown();
         Thread.sleep(500);
         enterOrbit();
+    }
+    @MyCustomAnnotation
+    private void igorSay(){
+        System.out.println(ANSI_GREEN+"ДИМОН ЛОХ"+ANSI_RESET);
     }
 
     private void enterOrbit() {

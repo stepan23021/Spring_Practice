@@ -6,6 +6,8 @@ import com.example.hibernate_practice.entity.StudentAddress;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.TypedQuery;
@@ -16,7 +18,7 @@ import java.util.Set;
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.*;
 
 @Component("hibernateBean")
-public class MainHibernate {
+public class MainHibernate implements DisposableBean, InitializingBean {
 
     public MainHibernate() {
 
@@ -128,5 +130,15 @@ public class MainHibernate {
         }
         student.setExams(exams);
         return student;
+    }
+
+    @Override
+    public void destroy() throws Exception {
+
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
     }
 }

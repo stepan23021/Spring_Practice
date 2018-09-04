@@ -18,7 +18,7 @@ import java.io.*;
 public class Launch implements Serializable {
     public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         SpringApplication.run(Launch.class, args);
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         String launches[] = {"apollo", "gemini"};
         for (String launch : launches) {
             Object obj = context.getBean(launch);

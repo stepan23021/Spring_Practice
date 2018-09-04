@@ -72,5 +72,6 @@
     <bean class="com.example.dmitrii.spring_practice.MyBeanPostProcessor"/>
     <bean id="colors" class="com.example.dmitrii.spring_practice.ansi_colors.Colors"/>
 
+    <bean class="com.example.dmitrii.spring_practice.MyBeanFactoryPostProcessor"/>
 
 </beans>
