@@ -10,22 +10,15 @@ import java.io.Serializable;
 
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_CYAN;
 
-public class Apollo implements Rocket, InitializingBean, DisposableBean, Serializable {
+public class Apollo extends BaseRocket implements InitializingBean, DisposableBean, Serializable {
 
-    private FuelType fuelType;
-    private FirstStage firstStage;
-    private SecondStage secondStage;
-    private ThirdStage thirdStage;
+
 
     private int serialNumber;
     private boolean hustonWeHaveAProblem;
     private String camouflage;
 
-    public Apollo(int serialNumber, boolean hustonWeHaveAProblem, String camouflage) {
-        this.serialNumber = serialNumber;
-        this.hustonWeHaveAProblem = hustonWeHaveAProblem;
-        this.camouflage = camouflage;
-    }
+
 
     public Apollo(FuelType fuelType,
                   FirstStage firstStage,
@@ -34,11 +27,7 @@ public class Apollo implements Rocket, InitializingBean, DisposableBean, Seriali
                   int serialNumber,
                   boolean hustonWeHaveAProblem,
                   String camouflage) {
-        super();
-        this.fuelType = fuelType;
-        this.firstStage = firstStage;
-        this.secondStage = secondStage;
-        this.thirdStage = thirdStage;
+        super(fuelType,firstStage,secondStage,thirdStage);
         this.serialNumber = serialNumber;
         this.hustonWeHaveAProblem = hustonWeHaveAProblem;
         this.camouflage = camouflage;
@@ -47,13 +36,14 @@ public class Apollo implements Rocket, InitializingBean, DisposableBean, Seriali
     public Apollo() {
     }
 
-    public Apollo(FuelType fuelType, FirstStage firstStage, SecondStage secondStage, ThirdStage thirdStage) {
-        super();
-        this.fuelType = fuelType;
-        this.firstStage = firstStage;
-        this.secondStage = secondStage;
-        this.thirdStage = thirdStage;
+    public Apollo(int serialNumber,boolean hustonWeHaveAProblem,String camouflage){
+        this.serialNumber = serialNumber;
+        this.hustonWeHaveAProblem = hustonWeHaveAProblem;
+        this.camouflage = camouflage;
+    }
 
+    public Apollo(FuelType fuelType, FirstStage firstStage, SecondStage secondStage, ThirdStage thirdStage) {
+        super(fuelType,firstStage,secondStage,thirdStage);
     }
 
     @Override
@@ -90,38 +80,6 @@ public class Apollo implements Rocket, InitializingBean, DisposableBean, Seriali
     @Override
     public void moonLanding() {
         System.out.println("Beginning our journey to the Moon" + ANSI_CYAN);
-    }
-
-    public FuelType getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(FuelType fuelType) {
-        this.fuelType = fuelType;
-    }
-
-    public FirstStage getFirstStage() {
-        return firstStage;
-    }
-
-    public void setFirstStage(FirstStage firstStage) {
-        this.firstStage = firstStage;
-    }
-
-    public SecondStage getSecondStage() {
-        return secondStage;
-    }
-
-    public void setSecondStage(SecondStage secondStage) {
-        this.secondStage = secondStage;
-    }
-
-    public ThirdStage getThirdStage() {
-        return thirdStage;
-    }
-
-    public void setThirdStage(ThirdStage thirdStage) {
-        this.thirdStage = thirdStage;
     }
 
     public int getSerialNumber() {
