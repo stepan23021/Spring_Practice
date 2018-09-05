@@ -72,8 +72,9 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
         Thread.sleep(500);
         enterOrbit();
     }
+
     @MyCustomAnnotation
-    private void igorSay(){
+    public void igorSay(){
         System.out.println(ANSI_GREEN+"ДИМОН ЛОХ"+ANSI_RESET);
     }
 

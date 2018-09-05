@@ -46,11 +46,12 @@
 
 
     <!-- GEMINI beans definitions here -->
-    <bean id="gemini" class="com.example.dmitrii.spring_practice.rockets.Apollo"
+    <bean id="gemini"
           c:serialNumber="175168413"
           c:hustonWeHaveAProblem="true"
           c:camouflage="White"
           parent="baseGeminiModel"/>
+    <!--parent="baseGeminiModel"/>-->
     <!--p:fuelType-ref="geminiFuelType"-->
     <!--p:firstStage-ref="geminiFirstStage"-->
     <!--p:secondStage-ref="geminiSecondStage"-->

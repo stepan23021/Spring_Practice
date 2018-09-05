@@ -25,11 +25,15 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         for (String name : names) {
             BeanDefinition beanDefinition = configurableListableBeanFactory.getBeanDefinition(name);
             String originalClassName = beanDefinition.getBeanClassName();
+            if(originalClassName==null){
+
+            }else{
             try {
                 Class<?> originalClass = Class.forName(originalClassName);
                 Method[] methods = originalClass.getMethods();
                 for (Method method : methods) {
                     if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
+                        System.out.println(name);
                         System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ" + ANSI_RESET);
                         Object bean = configurableListableBeanFactory.getBean(name);
                         Method currentMethod = bean.getClass().getMethod(method.getName());
@@ -38,6 +42,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
                 }
             } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
+            }
             }
         }
     }
