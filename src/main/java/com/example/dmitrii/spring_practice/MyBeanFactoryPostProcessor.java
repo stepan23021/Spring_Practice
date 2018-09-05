@@ -35,6 +35,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
                         System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BeanFactoryPostProcessor" + ANSI_RESET);
                         Object bean = configurableListableBeanFactory.getBean(name);
                         Method currentMethod = bean.getClass().getMethod(method.getName());
+                        
                         currentMethod.invoke(bean);
                     }
                 }

@@ -9,6 +9,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd"
        default-lazy-init="true">
+
     <!--APOLLO bean definitions here -->
     <bean id="apollo" class="com.example.dmitrii.spring_practice.rockets.Apollo"
           p:fuelType-ref="saturnFuelType"
@@ -35,14 +36,6 @@
     <bean id="saturnSecondStageStage" class="com.example.dmitrii.spring_practice.saturn.SaturnSecondStage"/>
     <bean id="saturnThirdStage" class="com.example.dmitrii.spring_practice.saturn.SaturnThirdStage"/>
     <bean id="saturnFuelType" class="com.example.dmitrii.spring_practice.saturn.SaturnFuelType"/>
-    <!--<constructor-arg value="175168413" index="0" type="int"/>-->
-    <!--<constructor-arg value="false" index="1" type="boolean"/>-->
-    <!--<constructor-arg value="Black|White" index="2" type="java.lang.String"/>-->
-
-    <!--<property name="fuelType" ref="saturnFuelType"/>-->
-    <!--<property name="firstStage" ref="saturnFirstStage"/>-->
-    <!--<property name="secondStage" ref="saturnSecondStageStage"/>-->
-    <!--<property name="thirdStage" ref="saturnThirdStage"/>-->
 
 
     <!-- GEMINI beans definitions here -->
@@ -51,11 +44,7 @@
           c:hustonWeHaveAProblem="true"
           c:camouflage="White"
           parent="baseGeminiModel"/>
-    <!--parent="baseGeminiModel"/>-->
-    <!--p:fuelType-ref="geminiFuelType"-->
-    <!--p:firstStage-ref="geminiFirstStage"-->
-    <!--p:secondStage-ref="geminiSecondStage"-->
-    <!--p:thirdStage-ref="geminiThirdStage"-->
+
 
     <bean id="baseGeminiModel" class="com.example.dmitrii.spring_practice.rockets.Apollo"
           c:fuelType-ref="geminiFuelType"
