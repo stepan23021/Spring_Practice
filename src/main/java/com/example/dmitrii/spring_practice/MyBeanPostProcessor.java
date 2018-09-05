@@ -1,10 +1,7 @@
 package com.example.dmitrii.spring_practice;
 
-import com.example.dmitrii.spring_practice.rockets.MyCustomAnnotation;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-
-import java.lang.reflect.Method;
 
 /**
  * @author Dmitrii Stepcenco
@@ -15,7 +12,6 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         System.out.println(bean + " --postProcessBeforeInitialization()");
-
         return bean;
     }
 
