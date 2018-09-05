@@ -20,21 +20,19 @@ import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_RESET;
 public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-        System.out.println(ANSI_RED + "I AM ALIVE" + ANSI_RESET);
         String[] names = configurableListableBeanFactory.getBeanDefinitionNames();
         for (String name : names) {
             BeanDefinition beanDefinition = configurableListableBeanFactory.getBeanDefinition(name);
             String originalClassName = beanDefinition.getBeanClassName();
             if(originalClassName==null){
-
+                System.out.println(ANSI_RED+"WARNING......CANNOT GET CLASS NAME! ORIGINAL CLASS IS NULL"+ANSI_RESET);
             }else{
             try {
                 Class<?> originalClass = Class.forName(originalClassName);
                 Method[] methods = originalClass.getMethods();
                 for (Method method : methods) {
                     if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
-                        System.out.println(name);
-                        System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ" + ANSI_RESET);
+                        System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BFPP" + ANSI_RESET);
                         Object bean = configurableListableBeanFactory.getBean(name);
                         Method currentMethod = bean.getClass().getMethod(method.getName());
                         currentMethod.invoke(bean);
