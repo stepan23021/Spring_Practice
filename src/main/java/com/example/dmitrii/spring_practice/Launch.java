@@ -1,15 +1,10 @@
 package com.example.dmitrii.spring_practice;
 
-import com.example.dmitrii.spring_practice.gemini.GeminiFirstStage;
-import com.example.dmitrii.spring_practice.gemini.GeminiFuelType;
-import com.example.dmitrii.spring_practice.gemini.GeminiThirdStage;
 import com.example.dmitrii.spring_practice.rockets.Apollo;
-import com.example.dmitrii.spring_practice.saturn.SaturnSecondStage;
 import com.example.hibernate_practice.MainHibernate;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.*;
@@ -43,8 +38,7 @@ public class Launch implements Serializable {
         }
         Object bean = context.getBean("hibernateBean");
         if (bean instanceof MainHibernate) {
-            MainHibernate hibernate = (MainHibernate) bean;
-            hibernate.main();
+            ((MainHibernate) bean).main();
         }
         int exitCode = SpringApplication.exit(context, (ExitCodeGenerator) () -> {
             // return the error code
