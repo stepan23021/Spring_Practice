@@ -32,7 +32,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
                 Method[] methods = originalClass.getMethods();
                 for (Method method : methods) {
                     if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
-                        System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BFPP" + ANSI_RESET);
+                        System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BeanFactoryPostProcessor" + ANSI_RESET);
                         Object bean = configurableListableBeanFactory.getBean(name);
                         Method currentMethod = bean.getClass().getMethod(method.getName());
                         currentMethod.invoke(bean);
