@@ -31,7 +31,7 @@ public class Launch implements Serializable {
 //                Apollo apollo2 = (Apollo) objectInputStream.readObject();
 //                System.out.println(apollo2.getCamouflage());
                 Apollo apollo = (Apollo) obj;
-                apollo.launch();
+//                apollo.launch();
                 if (launch.equals("apollo"))
                     apollo.moonLanding();
             }
