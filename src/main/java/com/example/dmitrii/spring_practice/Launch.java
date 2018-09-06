@@ -18,20 +18,20 @@ public class Launch implements Serializable {
         for (String launch : launches) {
             Object obj = context.getBean(launch);
             if (obj instanceof Apollo) {
-//                FileOutputStream fileOutputStream = new FileOutputStream("/home/dmitriistepcenco/Desktop/temp.out");
-//                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-//                Apollo apollo1 = new Apollo();
-//                apollo1.setCamouflage("BLACK");
-//                apollo1.setHustonWeHaveAProblem(false);
-//                objectOutputStream.writeObject(apollo1);
-//                objectOutputStream.flush();
-//                objectOutputStream.close();
-//                FileInputStream fileInputStream = new FileInputStream("/home/dmitriistepcenco/Desktop/temp.out");
-//                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-//                Apollo apollo2 = (Apollo) objectInputStream.readObject();
-//                System.out.println(apollo2.getCamouflage());
+                FileOutputStream fileOutputStream = new FileOutputStream("/home/dmitriistepcenco/Desktop/temp.out");
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+                Apollo apollo1 = new Apollo();
+                apollo1.setCamouflage("BLACK");
+                apollo1.setHustonWeHaveAProblem(false);
+                objectOutputStream.writeObject(apollo1);
+                objectOutputStream.flush();
+                objectOutputStream.close();
+                FileInputStream fileInputStream = new FileInputStream("/home/dmitriistepcenco/Desktop/temp.out");
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                Apollo apollo2 = (Apollo) objectInputStream.readObject();
+                System.out.println(apollo2.getCamouflage());
                 Apollo apollo = (Apollo) obj;
-//                apollo.launch();
+                apollo.launch();
                 if (launch.equals("apollo"))
                     apollo.moonLanding();
             }
