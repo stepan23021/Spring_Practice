@@ -5,20 +5,23 @@ package com.example.dmitrii.spring_practice.Some_Practice;
  * @created 05 September 2018
  **/
 
-public class BMW extends Car {
-    public BMW(){
+public class BMW extends Car implements Runnable{
+
+
+    public BMW() {
         super();
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i<2;i++){
-            BMW bmw = new BMW();
-            bmw.go();
-        }
+        BMW bmw = new BMW();
+        bmw.go();
+
     }
 
     @Override
     public void go() {
+        run();
+        System.out.println("New thread finished");
         super.go();
         wheels = "Aluminium";
         color = "White";
@@ -26,4 +29,15 @@ public class BMW extends Car {
         enginePower = 300;
         super.go();
     }
+
+    @Override
+    public void run() {
+        System.out.println("New thread started");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
