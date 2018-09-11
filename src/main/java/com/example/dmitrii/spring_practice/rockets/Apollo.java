@@ -49,27 +49,27 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
     @Override
     public void launch() throws InterruptedException {
         System.out.println("Camouflage " + camouflage);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         System.out.println("Serial Number " + serialNumber);
-        Thread.sleep(500);
+//        Thread.sleep(500);
         fuelType.fuelingRocket();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         firstStage.firstStageStart();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         firstStage.firstStageShutDown();
         if (hustonWeHaveAProblem) {
-            Thread.sleep(500);
+//            Thread.sleep(500);
             System.out.println("Huston, We Have A Problem");
         }
-        Thread.sleep(500);
+//        Thread.sleep(500);
         secondStage.secondStageStart();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         secondStage.secondStageShutDown();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         thirdStage.thirdStageStart();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         thirdStage.thirdStageShutdown();
-        Thread.sleep(500);
+//        Thread.sleep(500);
         enterOrbit();
     }
 
