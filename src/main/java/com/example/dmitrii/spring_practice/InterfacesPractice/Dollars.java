@@ -1,7 +1,5 @@
 package com.example.dmitrii.spring_practice.InterfacesPractice;
 
-import java.util.ArrayList;
-
 /**
  * @author Dmitrii Stepcenco
  * @created 12 September 2018

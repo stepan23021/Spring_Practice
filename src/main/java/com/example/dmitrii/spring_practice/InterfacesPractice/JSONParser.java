@@ -5,7 +5,6 @@ import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Dmitrii Stepcenco
@@ -24,13 +23,12 @@ class JSONParser {
                 .select("span")
                 .eachText()
                 .toArray());
-        System.out.println(Arrays.toString(array));
+
         for (int i = 1, k = 0; i < array.length; i += 2, k++) {
             if (k != 2 && k != 3) {
                 Double aDouble = Double.parseDouble(array[i].toString());
                 arr.add(aDouble);
             }
         }
-        System.out.println(arr);
     }
 }

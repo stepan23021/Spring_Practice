@@ -22,7 +22,12 @@ public class Converter {
         double answer = 0.0;
         boolean tmp = true;
         while (tmp) {
-            System.out.println("Please, select which currency you want to convert\n1.Dollar\n2.Euro\n3.Ruble\n4.MDL\n5.Exit");
+            System.out.println("Please, select which currency you want to convert\n" +
+                    "1.Dollar\n" +
+                    "2.Euro\n" +
+                    "3.Ruble\n" +
+                    "4.MDL\n" +
+                    "5.Exit");
             int currency1 = new Scanner(System.in).nextInt();
             if (currency1 == 5) {
                 System.out.println("Terminating...");
@@ -32,7 +37,12 @@ public class Converter {
             } else {
                 System.out.println("Enter value");
                 value = new Scanner(System.in).nextInt();
-                System.out.println("Please specify to which currency you want to convert\n1.Dollar\n2.Euro\n3.Ruble\n4.MDL\n5.Exit");
+                System.out.println("Please specify to which currency you want to convert\n" +
+                        "1.Dollar\n" +
+                        "2.Euro\n" +
+                        "3.Ruble\n" +
+                        "4.MDL\n" +
+                        "5.Exit");
                 int currency2 = new Scanner(System.in).nextInt();
                 switch (currency1) {
                     case 1:
@@ -82,6 +92,7 @@ public class Converter {
                         break;
                     default:
                         System.out.println("Wrong answer. Try again");
+                        break;
                 }
                 DecimalFormat format = new DecimalFormat("##.00");
                 String ans = (format.format(answer));
