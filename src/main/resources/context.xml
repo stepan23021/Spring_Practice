@@ -60,10 +60,10 @@
 
     <context:component-scan base-package="com.example.hibernate_practice"/>
 
-    <bean class="com.example.dmitrii.spring_practice.MyBeanPostProcessor"/>
+    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanPostProcessor"/>
     <!--<bean id="colors" class="com.example.dmitrii.spring_practice.ansi_colors.Colors"/>-->
 
-    <bean class="com.example.dmitrii.spring_practice.MyBeanFactoryPostProcessor"/>
+    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanFactoryPostProcessor"/>
 
     <bean id="apolloConveyor" class="com.example.dmitrii.spring_practice.rockets.ApolloConveyor">
         <lookup-method name="createRocket" bean="apollo"/>
