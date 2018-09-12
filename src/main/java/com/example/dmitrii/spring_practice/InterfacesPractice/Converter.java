@@ -99,6 +99,5 @@ public class Converter {
                 System.out.printf(ANSI_RED + "The result of converting %d %s to %s is %s\n\n" + ANSI_RESET, value, cur1, cur2, ans);
             }
         }
-
     }
 }
