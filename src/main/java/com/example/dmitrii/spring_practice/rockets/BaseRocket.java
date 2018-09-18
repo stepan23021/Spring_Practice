@@ -14,8 +14,8 @@ public abstract class BaseRocket implements Rocket {
     SecondStage secondStage;
     ThirdStage thirdStage;
 
-    public BaseRocket(){
-        System.out.println(this+" BaseRocket constructor()");
+    public BaseRocket() {
+        System.out.println(this + " BaseRocket constructor()");
     }
 
     public BaseRocket(FuelType fuelType, FirstStage firstStage, SecondStage secondStage, ThirdStage thirdStage) {

@@ -9,7 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Serializable;
 
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_RED;
 import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_RESET;
@@ -22,11 +23,11 @@ public class Launch implements Serializable {
         String launches[] = {"apollo", "gemini"};
         RocketConveyor rocketConveyor = (RocketConveyor) context.getBean("apolloConveyor");
         Rocket rocket1 = rocketConveyor.createRocket();
-        System.out.println(ANSI_RED+"Rocket "+rocket1+ANSI_RESET);
+        System.out.println(ANSI_RED + "Rocket " + rocket1 + ANSI_RESET);
         Rocket rocket2 = rocketConveyor.createRocket();
-        System.out.println(ANSI_RED+"Rocket "+rocket2+ANSI_RESET);
+        System.out.println(ANSI_RED + "Rocket " + rocket2 + ANSI_RESET);
         Rocket rocket3 = rocketConveyor.createRocket();
-        System.out.println(ANSI_RED+"Rocket "+rocket3+ANSI_RESET);
+        System.out.println(ANSI_RED + "Rocket " + rocket3 + ANSI_RESET);
 
         for (String launch : launches) {
             Object obj = context.getBean(launch);

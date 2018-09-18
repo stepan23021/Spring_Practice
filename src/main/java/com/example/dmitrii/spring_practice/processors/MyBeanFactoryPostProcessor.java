@@ -24,24 +24,24 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
         for (String name : names) {
             BeanDefinition beanDefinition = configurableListableBeanFactory.getBeanDefinition(name);
             String originalClassName = beanDefinition.getBeanClassName();
-            if(originalClassName==null){
-                System.out.println(ANSI_RED+"WARNING......CANNOT GET CLASS NAME! ORIGINAL CLASS IS NULL"+ANSI_RESET);
-            }else{
-            try {
-                Class<?> originalClass = Class.forName(originalClassName);
-                Method[] methods = originalClass.getMethods();
-                for (Method method : methods) {
-                    if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
-                        System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BeanFactoryPostProcessor" + ANSI_RESET);
-                        Object bean = configurableListableBeanFactory.getBean(name);
-                        Method currentMethod = bean.getClass().getMethod(method.getName());
-                        
-                        currentMethod.invoke(bean);
+            if (originalClassName == null) {
+                System.out.println(ANSI_RED + "WARNING......CANNOT GET CLASS NAME! ORIGINAL CLASS IS NULL" + ANSI_RESET);
+            } else {
+                try {
+                    Class<?> originalClass = Class.forName(originalClassName);
+                    Method[] methods = originalClass.getMethods();
+                    for (Method method : methods) {
+                        if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
+                            System.out.println(ANSI_RED + "АННОТАЦИЯ НАШЛАСЬ в BeanFactoryPostProcessor" + ANSI_RESET);
+                            Object bean = configurableListableBeanFactory.getBean(name);
+                            Method currentMethod = bean.getClass().getMethod(method.getName());
+
+                            currentMethod.invoke(bean);
+                        }
                     }
+                } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
                 }
-            } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
             }
         }
     }

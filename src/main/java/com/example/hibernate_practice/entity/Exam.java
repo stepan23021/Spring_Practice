@@ -1,7 +1,5 @@
 package com.example.hibernate_practice.entity;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 
@@ -13,7 +11,7 @@ public class Exam {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
+    @JoinColumn(foreignKey = @ForeignKey(name = "student_id"), name = "student_id")
     private Student student;
 
     @ManyToOne(fetch = FetchType.LAZY)

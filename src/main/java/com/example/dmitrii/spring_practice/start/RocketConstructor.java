@@ -15,7 +15,7 @@ public class RocketConstructor {
         SaturnFirstStage firstStage = new SaturnFirstStage();
         GeminiSecondStage secondStage = new GeminiSecondStage();
         SaturnThirdStage thirdStage = new SaturnThirdStage();
-        Apollo apollo = new Apollo(fuelType,firstStage,secondStage,thirdStage);
+        Apollo apollo = new Apollo(fuelType, firstStage, secondStage, thirdStage);
         apollo.launch();
         apollo.moonLanding();
 

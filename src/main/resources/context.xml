@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:c="http://www.springframework.org/schema/c"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd"
-       default-lazy-init="true">
+       http://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="true">
 
     <!--APOLLO bean definitions here -->
-    <bean id="apollo" class="com.example.dmitrii.spring_practice.rockets.Apollo"
-          p:fuelType-ref="saturnFuelType"
-          p:firstStage-ref="saturnFirstStage"
-          p:secondStage-ref="saturnSecondStageStage"
-          p:thirdStage-ref="saturnThirdStage"
-          c:serialNumber="175168413"
-          c:hustonWeHaveAProblem="false"
-          c:camouflage="Black|White"
-          scope="prototype"
-    />
+    <bean id="apollo" class="com.example.dmitrii.spring_practice.rockets.Apollo" p:fuelType-ref="saturnFuelType"
+        p:firstStage-ref="saturnFirstStage" p:secondStage-ref="saturnSecondStageStage"
+        p:thirdStage-ref="saturnThirdStage" c:serialNumber="175168413" c:hustonWeHaveAProblem="false"
+        c:camouflage="Black|White" scope="prototype" />
 
     <!--<bean id="baseModel" class="com.example.dmitrii.spring_practice.rockets.Apollo"-->
     <!--c:fuelType-ref="saturnFuelType"-->
@@ -33,40 +23,35 @@
     <!--/>-->
 
 
-    <bean id="saturnFirstStage" class="com.example.dmitrii.spring_practice.saturn.SaturnFirstStage"/>
-    <bean id="saturnSecondStageStage" class="com.example.dmitrii.spring_practice.saturn.SaturnSecondStage"/>
-    <bean id="saturnThirdStage" class="com.example.dmitrii.spring_practice.saturn.SaturnThirdStage"/>
-    <bean id="saturnFuelType" class="com.example.dmitrii.spring_practice.saturn.SaturnFuelType"/>
+    <bean id="saturnFirstStage" class="com.example.dmitrii.spring_practice.saturn.SaturnFirstStage" />
+    <bean id="saturnSecondStageStage" class="com.example.dmitrii.spring_practice.saturn.SaturnSecondStage" />
+    <bean id="saturnThirdStage" class="com.example.dmitrii.spring_practice.saturn.SaturnThirdStage" />
+    <bean id="saturnFuelType" class="com.example.dmitrii.spring_practice.saturn.SaturnFuelType" />
 
 
     <!-- GEMINI beans definitions here -->
-    <bean id="gemini"
-          c:serialNumber="175168413"
-          c:hustonWeHaveAProblem="true"
-          c:camouflage="White"
-          parent="baseGeminiModel"/>
+    <bean id="gemini" c:serialNumber="175168413" c:hustonWeHaveAProblem="true" c:camouflage="White"
+        parent="baseGeminiModel" />
 
 
     <bean id="baseGeminiModel" class="com.example.dmitrii.spring_practice.rockets.Apollo"
-          c:fuelType-ref="geminiFuelType"
-          c:firstStage-ref="geminiFirstStage"
-          c:secondStage-ref="geminiSecondStage"
-          c:thirdStage-ref="geminiThirdStage"/>
+        c:fuelType-ref="geminiFuelType" c:firstStage-ref="geminiFirstStage" c:secondStage-ref="geminiSecondStage"
+        c:thirdStage-ref="geminiThirdStage" />
 
-    <bean id="geminiFirstStage" class="com.example.dmitrii.spring_practice.gemini.GeminiFirstStage"/>
-    <bean id="geminiSecondStage" class="com.example.dmitrii.spring_practice.gemini.GeminiSecondStage"/>
-    <bean id="geminiThirdStage" class="com.example.dmitrii.spring_practice.gemini.GeminiThirdStage"/>
-    <bean id="geminiFuelType" class="com.example.dmitrii.spring_practice.gemini.GeminiFuelType"/>
+    <bean id="geminiFirstStage" class="com.example.dmitrii.spring_practice.gemini.GeminiFirstStage" />
+    <bean id="geminiSecondStage" class="com.example.dmitrii.spring_practice.gemini.GeminiSecondStage" />
+    <bean id="geminiThirdStage" class="com.example.dmitrii.spring_practice.gemini.GeminiThirdStage" />
+    <bean id="geminiFuelType" class="com.example.dmitrii.spring_practice.gemini.GeminiFuelType" />
 
-    <context:component-scan base-package="com.example.hibernate_practice"/>
+    <context:component-scan base-package="com.example.hibernate_practice" />
 
-    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanPostProcessor"/>
+    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanPostProcessor" />
     <!--<bean id="colors" class="com.example.dmitrii.spring_practice.ansi_colors.Colors"/>-->
 
-    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanFactoryPostProcessor"/>
+    <bean class="com.example.dmitrii.spring_practice.processors.MyBeanFactoryPostProcessor" />
 
     <bean id="apolloConveyor" class="com.example.dmitrii.spring_practice.rockets.ApolloConveyor">
-        <lookup-method name="createRocket" bean="apollo"/>
+        <lookup-method name="createRocket" bean="apollo" />
     </bean>
 
 </beans>

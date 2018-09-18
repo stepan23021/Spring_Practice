@@ -1,23 +1,22 @@
 package com.example.dmitrii.spring_practice.rockets;
 
-import com.example.dmitrii.spring_practice.rocket_interfaces.*;
+import com.example.dmitrii.spring_practice.rocket_interfaces.FirstStage;
+import com.example.dmitrii.spring_practice.rocket_interfaces.FuelType;
+import com.example.dmitrii.spring_practice.rocket_interfaces.SecondStage;
+import com.example.dmitrii.spring_practice.rocket_interfaces.ThirdStage;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 import java.io.Serializable;
 
-import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_CYAN;
-import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_GREEN;
-import static com.example.dmitrii.spring_practice.ansi_colors.Colors.ANSI_RESET;
+import static com.example.dmitrii.spring_practice.ansi_colors.Colors.*;
 
 public class Apollo extends BaseRocket implements InitializingBean, DisposableBean, Serializable {
-
 
 
     private int serialNumber;
     private boolean hustonWeHaveAProblem;
     private String camouflage;
-
 
 
     public Apollo(FuelType fuelType,
@@ -27,7 +26,7 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
                   int serialNumber,
                   boolean hustonWeHaveAProblem,
                   String camouflage) {
-        super(fuelType,firstStage,secondStage,thirdStage);
+        super(fuelType, firstStage, secondStage, thirdStage);
         this.serialNumber = serialNumber;
         this.hustonWeHaveAProblem = hustonWeHaveAProblem;
         this.camouflage = camouflage;
@@ -36,14 +35,14 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
     public Apollo() {
     }
 
-    public Apollo(int serialNumber,boolean hustonWeHaveAProblem,String camouflage){
+    public Apollo(int serialNumber, boolean hustonWeHaveAProblem, String camouflage) {
         this.serialNumber = serialNumber;
         this.hustonWeHaveAProblem = hustonWeHaveAProblem;
         this.camouflage = camouflage;
     }
 
     public Apollo(FuelType fuelType, FirstStage firstStage, SecondStage secondStage, ThirdStage thirdStage) {
-        super(fuelType,firstStage,secondStage,thirdStage);
+        super(fuelType, firstStage, secondStage, thirdStage);
     }
 
     @Override
@@ -74,8 +73,8 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
     }
 
     @MyCustomAnnotation
-    public void igorSay(){
-        System.out.println(ANSI_GREEN+"ДИМОН ЛОХ"+ANSI_RESET);
+    public void igorSay() {
+        System.out.println(ANSI_GREEN + "ДИМОН ЛОХ" + ANSI_RESET);
     }
 
     private void enterOrbit() {
@@ -115,6 +114,7 @@ public class Apollo extends BaseRocket implements InitializingBean, DisposableBe
     public void destroy() throws Exception {
         System.out.println(this + " - method destroy()");
     }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println(this + " - method init()");

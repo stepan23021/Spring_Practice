@@ -37,8 +37,13 @@ public class MainHibernate implements DisposableBean, InitializingBean {
                     "2.Update grades\n" +
                     "3.Delete\n" +
                     "4.Nothing. I'm done. Exit.");
+            while(!scanner.hasNextInt()){
+                System.out.println("That's not a number!");
+                scanner.next();
+            }
+            int option = scanner.nextInt();
 
-            switch (scanner.nextInt()) {
+            switch (option) {
                 case 1:
                     session.save(addStudentInfo(scanner));
                     break;
